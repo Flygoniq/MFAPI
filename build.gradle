@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+var springBootVersion = '3.2.3'
+var jacksonVersion = '2.17.0'
+var jerseyVersion = '3.1.6'
+
+dependencies {
+    // Spring
+    implementation 'org.springframework.boot:spring-boot-starter-web:'+ springBootVersion
+    implementation 'org.springframework.boot:spring-boot-starter:'+ springBootVersion
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:' + springBootVersion
+    implementation 'org.springframework.boot:spring-boot-starter-jersey:' + springBootVersion
+
+
+    // Jersey
+    implementation 'org.glassfish.jersey.core:jersey-server:' + jerseyVersion
+    implementation 'org.glassfish.jersey.ext:jersey-bean-validation:' + jerseyVersion
+    implementation 'org.glassfish.jersey.media:jersey-media-multipart:' + jerseyVersion
+    implementation 'org.glassfish.jersey.ext:jersey-spring6:' + jerseyVersion
+
+    // Jackson
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:' + jacksonVersion
+    implementation 'com.fasterxml.jackson.core:jackson-core:' + jacksonVersion
+    implementation 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate6:' + jacksonVersion
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:' + jacksonVersion
+    implementation 'com.fasterxml.jackson.jakarta.rs:jackson-jakarta-rs-json-provider:' + jacksonVersion
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:' + jacksonVersion
+
+    // commons
+    implementation 'commons-beanutils:commons-beanutils:1.9.4'
+    implementation 'commons-net:commons-net:3.9.0'
+    implementation 'commons-validator:commons-validator:1.6'
+
+    // google
+    implementation 'com.google.guava:guava:33.1.0-jre'
+
+    implementation 'io.swagger.core.v3:swagger-annotations:2.2.21'
+    implementation 'io.swagger.core.v3:swagger-jaxrs2-jakarta:2.2.1'
+    implementation 'jakarta.json:jakarta.json-api:2.0.1'
+
+    implementation 'org.postgresql:postgresql:42.7.3'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+}
